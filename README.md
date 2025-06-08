@@ -1,4 +1,6 @@
-## Create .env file and place your database connection url
+## Install MySQL database
+
+## Create .env file and place your MySQL database connection url
 
 ```
 DATABASE_URL="mysql://root:root@localhost:3306/belajar_nestjs_restful_api_prod"
@@ -13,7 +15,10 @@ $ npm run migrate
 ## Installation
 
 ```bash
+# all
 $ npm install
+# only prod
+$ npm install --only=prod
 ```
 
 ## Running the app
@@ -35,7 +40,7 @@ $ npm run start:prod
 # unit tests
 $ npm run test
 
-# e2e tests
+# e2e tests (disabled)
 $ npm run test:e2e
 
 # test coverage
