@@ -13,7 +13,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y unzip curl
 
 # Download and unzip the project
-RUN curl -L -o super-prod.zip https://github.com/FaizoKen/belajar-nestjs-restful-api-1/raw/refs/heads/main/super-prod.zip \
+RUN curl -L -o super-prod.zip https://github.com/FaizoKen/belajar-nestjs-restful-api-1/raw/refs/heads/main/super-prodapp.zip \
     && unzip super-prod.zip \
     && rm super-prod.zip
 
