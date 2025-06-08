@@ -57,15 +57,10 @@ npm run start:prod
 # Start on Docker (Prod)
 ## 🚀 Commands (Linux/macOS)
 
-### Build Application
-```bash
-nest build
-```
-
-### 🔨 Build the Docker Image
+### 🔨 Build Application and Docker Image
 
 ```bash
-docker build --no-cache -t app .
+npm run build:docker
 ```
 
 ---
