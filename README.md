@@ -17,7 +17,7 @@ DATABASE_URL="mysql://root:root@localhost:3306/belajar_nestjs_restful_api_prod"
 Run the following command to apply existing migrations:
 
 ```bash
-npx prisma migrate deploy
+npx prisma migrate dev
 ```
 
 ## 📦 Install Dependencies
