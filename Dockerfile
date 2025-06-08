@@ -7,11 +7,14 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install only production dependencies
-RUN npm install --only=production
+RUN npm ci --only=production
 
 # Copy built app and Prisma schema
 COPY dist ./dist
 COPY prisma ./prisma
+
+# Generate Prisma client
+RUN npx prisma generate
 
 # Expose app port
 EXPOSE 3000
