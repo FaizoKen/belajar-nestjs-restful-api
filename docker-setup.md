@@ -13,16 +13,13 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y unzip curl
 
 # Download and unzip the project
-RUN curl -L -o super-prod.zip https://github.com/FaizoKen/belajar-nestjs-restful-api-1/raw/refs/heads/main/super-prodapp.zip \
+RUN curl -L -o super-prod.zip https://github.com/FaizoKen/belajar-nestjs-restful-api-1/raw/refs/heads/main/super-prod.zip \
     && unzip super-prod.zip \
     && rm super-prod.zip
 
 # Move into the unzipped directory if needed
 # Uncomment and adjust this line based on actual structure
 # WORKDIR /app/super-prod
-
-# Fix prisma permissions
-RUN chmod +x ./node_modules/.bin/prisma
 
 # Expose NestJS default port
 EXPOSE 3000
@@ -37,7 +34,7 @@ CMD ["npm", "run", "start:super-prod"]
 ```yml
 services:
   testapp:
-    image: testapp
+    image: app
     ports:
       - "3000:3000"
     environment:
@@ -48,7 +45,6 @@ services:
 networks:
   app-network:
     external: true
-
 ```
 
 
@@ -81,7 +77,7 @@ networks:
 
 ## Build Dockerfile
 ```bash
-docker build -t testapp .
+docker build -t app .
 ```
 
 ## Create app network
