@@ -33,7 +33,7 @@ CMD ["npm", "run", "start:super-prod"]
 
 ```yml
 services:
-  testapp:
+  app:
     image: app
     ports:
       - "3000:3000"
