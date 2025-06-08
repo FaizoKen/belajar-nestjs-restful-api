@@ -28,7 +28,6 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: belajar_nestjs_restful_api
     volumes:
       - db_data:/var/lib/mysql
     networks:
@@ -40,7 +39,6 @@ volumes:
 networks:
   app-network:
     external: true
-
 ```
 
 
@@ -66,7 +64,7 @@ networks:
 
 ## Build Dockerfile
 ```bash
-docker build -t app .
+docker build --no-cache -t app .
 ```
 
 ## Create app network
@@ -83,4 +81,9 @@ docker compose -f db-compose.yml up -d
 ## Start App
 ```bash
 docker compose -f app-compose.yml up -d
+```
+
+## Monitor App
+```bash
+docker compose -f app-compose.yml logs -f
 ```
