@@ -13,10 +13,8 @@ RUN npm ci --only=production
 COPY dist ./dist
 COPY prisma ./prisma
 
-RUN npx prisma migrate deploy
-
 # Expose app port
 EXPOSE 3000
 
 # Start the app
-CMD ["node", "dist/main.js"]
+CMD ["npm", "run", "start:docker"]
