@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "start:super-prod": "npm install --only=prod && npx prisma migrate deploy && node main.js",
+    "start:docker-prod": "npm install --only=prod && npx prisma migrate deploy && node dist/main",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",

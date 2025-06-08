@@ -51,10 +51,10 @@ clean export prod code
 
 nest build
 
-./dist >
-prisma
-package.json
-package-lock.json
+./dist > /
+./prisma/schema.prisma > prisma/
+./package.json > /
+./package-lock.json > /
 
 dont forget to put mysql database on .env
 
