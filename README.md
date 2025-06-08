@@ -59,9 +59,7 @@ package-lock.json
 dont forget to put mysql database on .env
 
 ```bash
-npm install --only=prod
-npx prisma migrate deploy
-node main.js
+npm run start:super-prod
 ```
 
 example database
