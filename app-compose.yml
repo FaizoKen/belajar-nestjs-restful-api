@@ -1,0 +1,13 @@
+services:
+  app:
+    image: app
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=mysql://root:root@db:3306/belajar_nestjs_restful_api
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    external: true

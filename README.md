@@ -1,66 +1,108 @@
-## Install MySQL database
+# 🛠️ Prerequisites (Dev)
 
-## Create .env file and place your MySQL database connection url
+* Install **MySQL** and ensure it's running.
 
-```
+## 📄 Setup `.env` File
+
+Create a `.env` file in the root directory and add your MySQL database connection URL (example):
+
+```env
 DATABASE_URL="mysql://root:root@localhost:3306/belajar_nestjs_restful_api_prod"
 ```
 
-## Migrate
+> 💡 Replace the credentials and database name with your actual configuration.
+
+## 🔄 Database Migration
+
+Run the following command to apply existing migrations:
 
 ```bash
-$ npm run migrate
+npx prisma migrate deploy
 ```
 
-## Installation
+## 📦 Install Dependencies
 
 ```bash
-# all
-$ npm install
-# only prod
-$ npm install --only=prod
+npm install
 ```
 
-## Running the app
+## 🚀 Running the Application
 
 ```bash
-# development
-$ npm run start
+# Start in normal mode (no auto restart)
+npm run start
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+# Start in watch mode (auto-restart on file changes)
+npm run start:dev
 ```
-
-## Test
+## 🧪 Run App Tests
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests (disabled)
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+# Execute unit tests
+npm run test
 ```
 
-clean export prod code
+## 🏗️ Test The Prod Build
 
+```bash
+# build
+npm run build
+
+# Test the build
+npm run start:prod
+```
+
+
+
+# Start on Docker (Prod)
+## 🚀 Commands (Linux/macOS)
+
+### Build Application
+```bash
 nest build
-
-./dist > /
-./prisma/schema.prisma > prisma/
-./package.json > /
-./package-lock.json > /
-
-dont forget to put mysql database on .env
-
-```bash
-npm run start:super-prod
 ```
 
+### 🔨 Build the Docker Image
 
+```bash
+docker build --no-cache -t app .
+```
 
+---
+
+### 🌐 Create Docker Network
+
+```bash
+docker network create app-network
+```
+
+---
+
+### 🗃️ Start MySQL Container
+
+```bash
+docker compose -f db-compose.yml up -d
+```
+
+---
+
+### ▶️ Start the Application
+
+```bash
+docker compose -f app-compose.yml up -d
+```
+
+---
+
+### 📄 View Application Logs
+
+```bash
+docker compose -f app-compose.yml logs -f
+```
+
+---
+### ✅ Notes
+
+* Make sure Docker and Docker Compose are installed.
+* If you're running this for the first time, ensure `app-network` doesn't already exist to avoid conflict.
+* You can combine both services into a single `docker-compose.yml` if desired.
