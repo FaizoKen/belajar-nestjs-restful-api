@@ -81,21 +81,24 @@ networks:
   mynetwork:
     driver: bridge
 ```
+docker network create testapp
+docker run --name mysql-testapp --network testapp -d mysql/mysql-server
+
+docker logs mysql-testapp 2>&1 | grep GENERATED
+
+docker run -it ubuntu bash
 
 ```yaml
 version: '3.8'
 
 services:
   db:
-    image: prodimage
+    image: ubuntu
     environment:
       DATABASE_URL="mysql://root:root@localhost:3306/belajar_nestjs_restful_api"
     ports:
       - "3000:3000"
     networks:
-      - mynetwork
+      - testapp
 
-networks:
-  mynetwork:
-    driver: bridge
 ```yaml
