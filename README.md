@@ -12,6 +12,12 @@ npm run build:docker
 docker compose up
 ```
 
+### 🏠 Use Application
+
+```
+http://localhost:3000
+```
+
 ---
 
 # Start on Local (Dev)
