@@ -17,7 +17,7 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - DATABASE_URL=mysql://root:root@db:3306/belajar_nestjs_restful_api
+      - DATABASE_URL=mysql://root:root@db:3306/app
     depends_on:
       db:
         condition: service_healthy
