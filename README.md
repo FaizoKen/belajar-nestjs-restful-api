@@ -1,6 +1,6 @@
 # 🛠️ Prerequisites (Dev)
 
-* Install **MySQL** and ensure it's running.
+- Install **MySQL** and ensure it's running.
 
 ## 📄 Setup `.env` File
 
@@ -35,6 +35,7 @@ npm run start
 # Start in watch mode (auto-restart on file changes)
 npm run start:dev
 ```
+
 ## 🧪 Run App Tests
 
 ```bash
@@ -52,9 +53,8 @@ npm run build
 npm run start:prod
 ```
 
-
-
 # Start on Docker (Prod)
+
 ## 🚀 Commands (Linux/macOS)
 
 ### 🔨 Build Application and Docker Image
@@ -95,9 +95,24 @@ docker compose -f app-compose.yml up -d
 docker compose -f app-compose.yml logs -f
 ```
 
+### 🗃️ Stop MySQL Container
+
+```bash
+docker compose -f db-compose.yml down
+```
+
 ---
+
+### ▶️ Stop the Application
+
+```bash
+docker compose -f app-compose.yml down
+```
+
+---
+
 ### ✅ Notes
 
-* Make sure Docker and Docker Compose are installed.
-* If you're running this for the first time, ensure `app-network` doesn't already exist to avoid conflict.
-* You can combine both services into a single `docker-compose.yml` if desired.
+- Make sure Docker and Docker Compose are installed.
+- If you're running this for the first time, ensure `app-network` doesn't already exist to avoid conflict.
+- You can combine both services into a single `docker-compose.yml` if desired.
