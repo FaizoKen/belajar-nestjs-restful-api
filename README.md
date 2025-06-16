@@ -74,5 +74,3 @@ docker compose up
 ### ✅ Notes
 
 - Make sure Docker and Docker Compose are installed.
-- If you're running this for the first time, ensure `app-network` doesn't already exist to avoid conflict.
-- You can combine both services into a single `docker-compose.yml` if desired.
