@@ -1,11 +1,4 @@
 services:
-  app:
-    image: app
-    restart: always
-    ports:
-      - '3000:3000'
-    environment:
-      - DATABASE_URL=mysql://root:root@db:3306/belajar_nestjs_restful_api
   db:
     image: mysql
     restart: always
@@ -13,5 +6,21 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - db:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  app:
+    image: app
+    restart: always
+    ports:
+      - '3000:3000'
+    environment:
+      - DATABASE_URL=mysql://root:root@db:3306/belajar_nestjs_restful_api
+    depends_on:
+      db:
+        condition: service_healthy
+
 volumes:
   db:
